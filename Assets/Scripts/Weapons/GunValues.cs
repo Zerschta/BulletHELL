@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PlayerLogic : MonoBehaviour
+public class GunValues : MonoBehaviour
 {
-    public int HP;
+    public int Damage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

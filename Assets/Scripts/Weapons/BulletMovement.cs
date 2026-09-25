@@ -1,8 +1,7 @@
 using UnityEngine;
 
-public class PlayerLogic : MonoBehaviour
+public class BulletMovement : MonoBehaviour
 {
-    public int HP;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,6 +11,11 @@ public class PlayerLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        movement();
+    }
+
+    void movement()
+    { 
+        transform.position = transform.up * Time.deltaTime * 10;
     }
 }

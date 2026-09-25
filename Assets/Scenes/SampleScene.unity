@@ -189,11 +189,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4627873252736868158, guid: 35955250f84fd664e9c57e4429336d13, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -3.3467193
+      value: -3.48
       objectReference: {fileID: 0}
     - target: {fileID: 4627873252736868158, guid: 35955250f84fd664e9c57e4429336d13, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.5127176
+      value: 3.89
       objectReference: {fileID: 0}
     - target: {fileID: 4627873252736868158, guid: 35955250f84fd664e9c57e4429336d13, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -743,6 +743,7 @@ GameObject:
   - component: {fileID: 1866549512}
   - component: {fileID: 1866549508}
   - component: {fileID: 1866549511}
+  - component: {fileID: 1866549513}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -819,6 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3075f38f0e39c97499a7a6de88197e74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  HP: 0
 --- !u!58 &1866549512
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -855,6 +857,21 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.4
+--- !u!114 &1866549513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866549507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32b69adb44a27644a140127a2e1a9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Weapon
+  Data: {fileID: 11400000, guid: bd675d87e7d41b24a89195bb8b69e0d9, type: 2}
+  GunRot: {fileID: 1833606212}
+  BulletSpawner: {fileID: 1884611641}
 --- !u!1 &1884611641
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,7 +883,7 @@ GameObject:
   - component: {fileID: 1884611642}
   - component: {fileID: 1884611643}
   m_Layer: 0
-  m_Name: BulletSpawner
+  m_Name: WeaponHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
