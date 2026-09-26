@@ -6,12 +6,13 @@ public class Weapon : MonoBehaviour
     public WeaponData Data;
     public GameObject GunRot;
     public GameObject GunHold;
-    public GameObject BulletSpawner;
+    public Transform BulletSpawner;
 
     private void Start()
     {
         GunRot = GameObject.Find("WeaponRotation");
         GunHold = GameObject.Find("WeaponHolder");
+        BulletSpawner = transform.Find("BulletSpawner");
     }
     private void Update()
     {
