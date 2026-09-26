@@ -17,7 +17,8 @@ MonoBehaviour:
   spread: 0
   count: 1
   cooldown: 5
+  bulletSpeed: 20
   fireRate: 10
-  Range: 100
+  range: 0
   shootSound: {fileID: 0}
   projectilePrefab: {fileID: 8084173667019990630, guid: 995272640f7fed14d8f01fb33931d5d7, type: 3}

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
 {
+    public WeaponData Speed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,6 +17,6 @@ public class BulletMovement : MonoBehaviour
 
     void movement()
     { 
-        transform.position = transform.up * Time.deltaTime * 10;
+        transform.position += transform.right * Time.deltaTime * Speed.bulletSpeed;
     }
 }

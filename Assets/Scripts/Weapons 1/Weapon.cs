@@ -1,23 +1,34 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
     public WeaponData Data;
     public GameObject GunRot;
+    public GameObject GunHold;
     public GameObject BulletSpawner;
 
+    private void Start()
+    {
+        GunRot = GameObject.Find("WeaponRotation");
+        GunHold = GameObject.Find("WeaponHolder");
+    }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (transform.IsChildOf(GunHold.transform))
         {
-            fire();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                fire();
+            }
+            transform.position = GunHold.transform.position;
         }
     }
     public void fire()
     {
-        Instantiate(Data.projectilePrefab);
-        Data.projectilePrefab.transform.position = BulletSpawner.transform.position;
-        Data.projectilePrefab.transform.rotation = GunRot.transform.rotation;
+        
+        GameObject bullet = Instantiate(Data.projectilePrefab, BulletSpawner.transform.position , GunRot.transform.rotation);
+         
     }
     
 }
