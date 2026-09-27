@@ -13,8 +13,8 @@ public class WeaponData : ScriptableObject
 
     public float cooldown;
     public float bulletSpeed;
-    public float fireRate;
     public float range;
+    public float Magazine;
 
     public AudioClip shootSound;
     public GameObject projectilePrefab;

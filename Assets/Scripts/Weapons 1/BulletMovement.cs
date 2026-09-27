@@ -3,20 +3,30 @@ using UnityEngine;
 public class BulletMovement : MonoBehaviour
 {
     public WeaponData Speed;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private Vector3 startPosition;
+
     void Start()
     {
-        
+        startPosition = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         movement();
+        checkRange();
     }
 
     void movement()
-    { 
+    {
         transform.position += transform.right * Time.deltaTime * Speed.bulletSpeed;
+    }
+
+    void checkRange()
+    {
+        if (Vector3.Distance(startPosition, transform.position) >= Speed.range)
+        {
+            Destroy(gameObject);
+        }
     }
 }

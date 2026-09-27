@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cecd04d8e00a174e9b994ca129f3494, type: 3}
-  m_Name: Pistol
+  m_Name: Shotgun
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  weaponName: Pistol
-  damage: 10
-  spread: 0
-  count: 1
-  cooldown: 5
-  bulletSpeed: 20
-  fireRate: 10
-  range: 0
+  weaponName: Shotgun
+  damage: 20
+  spread: 7
+  count: 5
+  cooldown: 1.5
+  bulletSpeed: 15
+  range: 50
+  Magazine: 99
   shootSound: {fileID: 0}
   projectilePrefab: {fileID: 8084173667019990630, guid: 995272640f7fed14d8f01fb33931d5d7, type: 3}
