@@ -29,4 +29,14 @@ public class BulletMovement : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Object"))
+        {
+            healthManager life = collision.gameObject.GetComponentInChildren<healthManager>();
+            life.TakeDamage(Speed.damage);
+            Destroy(gameObject);
+        }
+    }
 }
