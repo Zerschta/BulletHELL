@@ -28,7 +28,7 @@ public class healthManager : MonoBehaviour
         HealthAmount -= damage;
         HealthBar.fillAmount = HealthAmount / MaxHealth;
     }
-
+    
     public void Heal(float HealingAmount)
     { 
         HealthAmount += HealingAmount;
