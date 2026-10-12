@@ -17,10 +17,13 @@ public class healthManager : MonoBehaviour
     {
         if (transform.parent == null) return;
 
+        death();
+    }
+
+    void LateUpdate()
+    {
         transform.position = transform.parent.position + new Vector3(0f, yOffset, 0f);
         transform.rotation = Quaternion.identity;
-
-        death();
     }
 
     public void TakeDamage(float damage)

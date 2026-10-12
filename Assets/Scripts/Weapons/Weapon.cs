@@ -27,7 +27,7 @@ public class Weapon : MonoBehaviour
             {
                 cooldownTimer -= Time.deltaTime;
 
-                if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0) && cooldownTimer <= 0f)
+                if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0)) && cooldownTimer <= 0f)
                 {
                     fire();
                     cooldownTimer = Data.cooldown;
