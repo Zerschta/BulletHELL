@@ -21,26 +21,26 @@ public class Weapon : MonoBehaviour
     {
         float magazine = Data.Magazine;
 
-        if (transform.IsChildOf(GunHold.transform))
-        {
-            if (magazine > 0)
-            {
-                cooldownTimer -= Time.deltaTime;
+        if (!transform.IsChildOf(GunHold.transform)) return;
 
-                if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0)) && cooldownTimer <= 0f)
-                {
-                    fire();
-                    cooldownTimer = Data.cooldown;
-                    Debug.Log("Fire");
-                    Data.Magazine -= 1;
-                }
+        if (magazine > 0)
+        {
+            cooldownTimer -= Time.deltaTime;
+
+            if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0)) && cooldownTimer <= 0f)
+            {
+                fire();
+                cooldownTimer = Data.cooldown;
+                Debug.Log("Fire");
+                Data.Magazine -= 1;
             }
-            else { 
-                Data.Magazine = 0;
-                Debug.Log("Emptymag");
-            }
-            transform.position = GunHold.transform.position;
         }
+        else
+        {
+            Data.Magazine = 0;
+            Debug.Log("Emptymag");
+        }
+        transform.position = GunHold.transform.position;
     }
 
     public void fire()
