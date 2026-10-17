@@ -18,11 +18,18 @@ public class Enemy_Movement : MonoBehaviour
     float range = 5f;
 
     [SerializeField] LayerMask layerMask;
+    [SerializeField] CircleCollider2D FOV;
+    [SerializeField] GameObject player;
     
 
     void Start()
     {   
         NewDirection();
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.gameObject.name + " ist im FOV breicht von : " + transform.name);
     }
 
     void Update()
@@ -42,7 +49,6 @@ public class Enemy_Movement : MonoBehaviour
         else if (timer > 0f)
         {
             transform.position += transform.up * speed * Time.deltaTime;
-
         }
     }
 
