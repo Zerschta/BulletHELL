@@ -15,29 +15,51 @@ public class Enemy_Movement : MonoBehaviour
     private float timer = 0f;
     private float closedcooldown;
 
+    private bool FOVAreaFree = true;
+    private bool FoundPlayer = false;
+    public float maxDistance = 5f;
+
     float range = 5f;
 
     [SerializeField] LayerMask layerMask;
     [SerializeField] CircleCollider2D FOV;
     [SerializeField] GameObject player;
     
-
     void Start()
-    {   
+    {
+        player = GameObject.Find("Player");
+        if (player == null) Debug.LogError("Player nicht gefunden!");
         NewDirection();
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name + " ist im FOV breicht von : " + transform.name);
+        if (FOV.IsTouching(other))
+        {
+            Debug.Log(other.gameObject.name + " ist im FOV Breicht von : " + transform.name);
+            if (other.transform.name == "Player")
+                FoundPlayer = true;
+
+            FOVAreaFree = false;
+        }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        FOVAreaFree = true;
+    }
     void Update()
     {
 
         timer -= Time.deltaTime;
 
         RayCast();
+        if (FoundPlayer)
+        {
+            FollowPlayer();
+            return;
+        }
+
         if (timer <= 0f)
         {
             closedcooldown -= Time.deltaTime;
@@ -46,9 +68,23 @@ public class Enemy_Movement : MonoBehaviour
                 closedcooldown = cooldown;
             }
         }
-        else if (timer > 0f)
+        else if (timer > 0f && FOVAreaFree)
         {
             transform.position += transform.up * speed * Time.deltaTime;
+        }
+    }
+
+    void FollowPlayer()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        Vector2 richtung = player.transform.position - transform.position;
+        transform.up = richtung;
+
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+
+        if (distance >= maxDistance)
+        { 
+            FoundPlayer = false;
         }
     }
 

@@ -943,11 +943,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5478786019850178230, guid: 2374e27d4b12521438394543bac22ec8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.906868
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5478786019850178230, guid: 2374e27d4b12521438394543bac22ec8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.158884
+      value: 3.19
       objectReference: {fileID: 0}
     - target: {fileID: 5478786019850178230, guid: 2374e27d4b12521438394543bac22ec8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1420,11 +1420,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5478786019850178230, guid: 2374e27d4b12521438394543bac22ec8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.872347
+      value: 8.95
       objectReference: {fileID: 0}
     - target: {fileID: 5478786019850178230, guid: 2374e27d4b12521438394543bac22ec8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.187199
+      value: -13.24
       objectReference: {fileID: 0}
     - target: {fileID: 5478786019850178230, guid: 2374e27d4b12521438394543bac22ec8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1569,11 +1569,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5478786019850178230, guid: 2374e27d4b12521438394543bac22ec8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.445019
+      value: -11.19
       objectReference: {fileID: 0}
     - target: {fileID: 5478786019850178230, guid: 2374e27d4b12521438394543bac22ec8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.80858
+      value: -7.06
       objectReference: {fileID: 0}
     - target: {fileID: 5478786019850178230, guid: 2374e27d4b12521438394543bac22ec8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2040,7 +2040,7 @@ GameObject:
   - component: {fileID: 1866549511}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2485,6 +2485,10 @@ SceneRoots:
   - {fileID: 160184553}
   - {fileID: 49783426}
   - {fileID: 1769718780}
+  - {fileID: 1518960941}
+  - {fileID: 311198604}
+  - {fileID: 1623431314}
+  - {fileID: 923966460}
   - {fileID: 1905296802}
   - {fileID: 121965827}
   - {fileID: 385348001}
@@ -2493,7 +2497,3 @@ SceneRoots:
   - {fileID: 2256796800148712861}
   - {fileID: 1822658450}
   - {fileID: 1765079734}
-  - {fileID: 1518960941}
-  - {fileID: 311198604}
-  - {fileID: 1623431314}
-  - {fileID: 923966460}
