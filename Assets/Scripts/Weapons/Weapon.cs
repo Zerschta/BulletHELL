@@ -44,7 +44,7 @@ public class Weapon : MonoBehaviour
         transform.position = GunHold.transform.position;
     }
 
-    public void fire()
+    public void fire() // 2 times the same code Logic dosnt seem very efficent REFAC
     {
         int count = Data.count;
         float spread = Data.spread;
@@ -65,7 +65,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    public void Enemyfire()
+    public void Enemyfire() // <-- REFAC
     {
         float magazine = Data.Magazine;
 
