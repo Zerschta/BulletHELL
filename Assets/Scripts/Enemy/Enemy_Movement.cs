@@ -16,7 +16,7 @@ public class Enemy_Movement : MonoBehaviour
     private float closedcooldown;
 
     private bool FOVAreaFree = true;
-    private bool FoundPlayer = false;
+    public bool FoundPlayer = false;
     public float maxDistance = 5f;
 
     float range = 5f;

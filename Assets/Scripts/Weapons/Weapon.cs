@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     public GameObject GunHold;
     public Transform BulletSpawner;
 
+
     private float cooldownTimer;
 
     private void Start()
@@ -61,6 +62,39 @@ public class Weapon : MonoBehaviour
         if (Data.shootSound != null)
         {
             AudioSource.PlayClipAtPoint(Data.shootSound, BulletSpawner.transform.position);
+        }
+    }
+
+    public void Enemyfire()
+    {
+        float magazine = Data.Magazine;
+
+        int count = Data.count;
+        float spread = Data.spread;
+        float startAngle = -spread * (count - 1) / 2f;
+
+        if (magazine > 0)
+        {
+            cooldownTimer -= Time.deltaTime;
+
+            if (cooldownTimer <= 0f)
+            {
+                cooldownTimer = Data.cooldown;
+
+                for (int i = 0; i < count; i++)
+                {
+                    float angle = startAngle + spread * i;
+                    Quaternion rotation = transform.rotation * Quaternion.Euler(0f, 0f, angle);
+
+                    GameObject bullet = Instantiate(Data.projectilePrefab, BulletSpawner.transform.position, rotation);
+                    bullet.GetComponent<BulletMovement>().Speed = Data;
+                }
+
+                if (Data.shootSound != null)
+                {
+                    AudioSource.PlayClipAtPoint(Data.shootSound, BulletSpawner.transform.position);
+                }
+            }
         }
     }
 }
