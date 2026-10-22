@@ -16,9 +16,15 @@ public class Enemy_GunLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Weapon == null) { return; }
+        Weapon childWeapon = GetComponentInChildren<Weapon>();
 
-        Weapon.transform.position = transform.position;
+        if (childWeapon != null)
+        {
+            Weapon = childWeapon;
+        }
+        else return;
+
+            Weapon.transform.position = transform.position;
         Weapon.transform.rotation = EnemyRotation.transform.rotation * Quaternion.Euler(0,0,90);
         
         if (Enemy.FoundPlayer)
