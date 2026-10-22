@@ -25,7 +25,6 @@ public class Enemy_GunLogic : MonoBehaviour
         {
             Weapon.Enemyfire();
         }
+        return;
     }
-    
-
 }
