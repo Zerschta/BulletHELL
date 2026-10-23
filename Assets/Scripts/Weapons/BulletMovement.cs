@@ -36,7 +36,7 @@ public class BulletMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Object"))
+        if (collision.collider.CompareTag("Object") || collision.collider.CompareTag("Player"))
         {
             healthManager life = collision.gameObject.GetComponentInChildren<healthManager>();
             life.TakeDamage(Speed.damage);

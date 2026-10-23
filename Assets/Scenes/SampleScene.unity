@@ -1261,6 +1261,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1864812856884512400, guid: 5175286bde68c9f488d27eed227a02b0, type: 3}
+      propertyPath: spread
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864812856884512400, guid: 5175286bde68c9f488d27eed227a02b0, type: 3}
+      propertyPath: rayCount
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5478786019850178230, guid: 5175286bde68c9f488d27eed227a02b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.44943
@@ -1328,7 +1336,7 @@ GameObject:
   - component: {fileID: 1306651872}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1749,9 +1757,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 865985913}
     m_Modifications:
+    - target: {fileID: 1125550577220625601, guid: f7891367987676e4491c0b4406377f3e, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1824185561093071608, guid: f7891367987676e4491c0b4406377f3e, type: 3}
       propertyPath: m_Name
       value: Shotgun (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1824185561093071608, guid: f7891367987676e4491c0b4406377f3e, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6377466138999693099, guid: f7891367987676e4491c0b4406377f3e, type: 3}
       propertyPath: m_LocalScale.x
@@ -1800,6 +1816,10 @@ PrefabInstance:
     - target: {fileID: 6377466138999693099, guid: f7891367987676e4491c0b4406377f3e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318657302303691254, guid: f7891367987676e4491c0b4406377f3e, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2131,7 +2151,7 @@ Transform:
   m_GameObject: {fileID: 1866549507}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.82, y: -0.55, z: 0}
+  m_LocalPosition: {x: 5.74, y: -1.13, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
