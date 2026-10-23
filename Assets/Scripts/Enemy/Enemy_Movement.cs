@@ -6,11 +6,13 @@ public class Enemy_Movement : MonoBehaviour
 {
     public float speed = 2f;
     public float minTime = 1f;   
-    public float maxTime = 3f;   
-   
+    public float maxTime = 3f;
+
+    public float rotationspeed = 5f;
     public float minCooldown = 0.3f;
     public float maxCooldown = 2f;
     public float cooldown;
+    private Quaternion targetRotation;
 
     private float timer = 0f;
     private float closedcooldown;
@@ -22,7 +24,7 @@ public class Enemy_Movement : MonoBehaviour
     float range = 5f;
 
     [SerializeField] LayerMask layerMask;
-    [SerializeField] CircleCollider2D FOV;
+    [SerializeField] FieldOfViewEnemy FieldOfView;
     [SerializeField] GameObject player;
     
     void Start()
@@ -32,24 +34,9 @@ public class Enemy_Movement : MonoBehaviour
         NewDirection();
     }
 
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (FOV.IsTouching(other))
-        {
-            Debug.Log(other.gameObject.name + " ist im FOV Breicht von : " + transform.name);
-            if (other.transform.name == "Player")
-                FoundPlayer = true;
-
-            FOVAreaFree = false;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        FOVAreaFree = true;
-    }
     void Update()
     {
+        FoundPlayer = FieldOfView.CheckRays();
 
         timer -= Time.deltaTime;
 
@@ -72,6 +59,7 @@ public class Enemy_Movement : MonoBehaviour
         {
             transform.position += transform.up * speed * Time.deltaTime;
         }
+        transform.rotation = Quaternion.Lerp(transform.rotation,targetRotation , Time.deltaTime * rotationspeed);
     }
 
     void FollowPlayer()
@@ -91,7 +79,7 @@ public class Enemy_Movement : MonoBehaviour
     void NewDirection()
     {
         float angle = Random.Range(0f, 360f);
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        targetRotation = Quaternion.Euler(0f, 0f, angle);
         timer = Random.Range(minTime, maxTime);
         cooldown = Random.Range(minCooldown, maxCooldown);
     }
@@ -99,19 +87,32 @@ public class Enemy_Movement : MonoBehaviour
     void RayCast()
     {
         Vector2 start = transform.position;
-        Vector2 position = transform.up; 
-        
-        RaycastHit2D hit = Physics2D.Raycast(start, position, range, layerMask);
+        Vector2 direction = transform.up;
 
-        if (hit.collider != null && hit.collider.CompareTag("Wall"))
+        RaycastHit2D hit = Physics2D.Raycast(
+            start,
+            direction,
+            range,
+            layerMask
+        );
+
+        Debug.DrawRay(start, direction * range, Color.red);
+
+        if (hit.collider != null &&
+            hit.collider.CompareTag("Wall"))
         {
-            closedcooldown -= Time.deltaTime;
-            if (closedcooldown <= 0f)
-            {
-                NewDirection();
-                Debug.Log( transform.name +  " :  RAYCAST wall collision");
-            }
+            
+            Vector2 awayDirection = hit.normal;
 
+            float angle = Mathf.Atan2(
+                awayDirection.y,
+                awayDirection.x
+            ) * Mathf.Rad2Deg;
+
+            
+            targetRotation = Quaternion.Euler(
+                0f, 0f, angle - 90f
+            );
         }
     }
 
