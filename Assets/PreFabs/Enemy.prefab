@@ -395,11 +395,12 @@ MonoBehaviour:
   speed: 2
   minTime: 1
   maxTime: 3
+  rotationspeed: 5
   minCooldown: 0.3
   maxCooldown: 0.9
   cooldown: 0.3
   FoundPlayer: 0
-  maxDistance: 8
+  maxDistance: 100
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -712,7 +713,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ad97ea8ab90244cbf946b7ce7800d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  PlayerDetected: 0
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1

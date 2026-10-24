@@ -69,11 +69,6 @@ public class Enemy_Movement : MonoBehaviour
         transform.up = richtung;
 
         float distance = Vector2.Distance(transform.position, player.transform.position);
-
-        if (distance >= maxDistance)
-        { 
-            FoundPlayer = false;
-        }
     }
 
     void NewDirection()

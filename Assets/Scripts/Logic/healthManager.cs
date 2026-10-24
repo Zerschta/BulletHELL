@@ -42,8 +42,15 @@ public class healthManager : MonoBehaviour
 
     void death()
     {
+
         if (HealthAmount <= 0)
         {
+            if (transform.parent.CompareTag("Player"))
+            { 
+                transform.parent.gameObject.SetActive(false);
+                return;
+            }
+
             Destroy(transform.parent.gameObject);
         }
     }
